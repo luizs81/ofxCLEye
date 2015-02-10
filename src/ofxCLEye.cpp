@@ -181,7 +181,7 @@ bool ofxCLEye::initGrabber(int w, int h, int deviceID, int frameRate, bool useTe
 	}
 	else{
 		ofLogWarning(OFX_CLEYE_MODULE_NAME) << "initGrabber(): selected resolution " + ofToString(w) + "x"
-			+ ofToString(h) + " is not available with ofxCLeye";
+			+ ofToString(h) + " is not available with ofxCLEye";
 		ofLogWarning(OFX_CLEYE_MODULE_NAME) << "initGrabber(): using 640x480 instead";
 		resolution = CLEYE_VGA;
 	}
@@ -193,7 +193,7 @@ bool ofxCLEye::initGrabber(int w, int h, int deviceID, int frameRate, bool useTe
 	}
 
 	GUID guid = getDeviceGUID(requestedDeviceID);
-	cam = CLEyeCreateCamera(guid, colorMode, resolution, 45);
+	cam = CLEyeCreateCamera(guid, colorMode, resolution, desiredFrameRate);
 
 	if(cam == NULL){
 		ofLogError(OFX_CLEYE_MODULE_NAME) << "initGrabber(): error when creating instance of CLEyeCamera.";
